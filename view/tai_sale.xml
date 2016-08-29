@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+      <record id="view_test" model="ir.ui.view">
+        <field name="name">tai_sale.tree</field>
+        <field name="model">sale.order</field>
+          <field name="inherit_id" ref="sale.view_order_tree"/>
+        <field name="arch" type="xml">
+                <field name="date_order" position="after">
+                     <field name="test"/>
+              </field>
+          </field>
+      </record>
+         <record id="view_tree_test" model="ir.ui.view">
+        <field name="name">tai_sale.tree</field>
+        <field name="model">sale.order</field>
+          <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+                <field name="date_order" position="after">
+                     <field name="test"/>
+                </field>
+          </field>
+      </record>
+
+        <record id="view_fee_tree_test" model="ir.ui.view">
+        <field name="name">fee.tree</field>
+        <field name="model">sale.order</field>
+          <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[1]" position="after">
+            <page string='Fee_amount'>
+                   <field name="id_fee"/>
+            </page>
+            </xpath>
+
+            <field name="amount_tax" position="after">
+                <field name="amount_fee"/>
+            </field>
+
+          </field>
+      </record>
+    </data>
+</openerp>

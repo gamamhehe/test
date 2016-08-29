@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data>
+<template id="report_saleorder_document">
+        <div class="page">
+            <div class="row">
+                <table style="width:100%">
+                    <tr>
+                        <td style="width:60%">
+                            <div style="padding-left:15px;width:10%;float:left">To :</div>
+                            <div class="col-xs-6" t-field="o.partner_invoice_id"
+                                 t-field-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": true}'/>
+                        </td>
+                        <td style="vertical-align: top;line-height:20px" >
+                                <div>COMPANY REG NO :
+                                    <span t-field="o.company_id.company_registry"/>
+                                </div>
+                                <div>OST REG NO :
+                                    <span t-field="o.company_id.vat"/>
+                                </div>
+                                <div>
+                                    <strong style="color:#ff0000">QUOTATION / CONFIRMATION ORDER NO:<br></br>
+                                    </strong>
+                                    <strong>
+                                        <span t-field="o.name"/>
+                                    </strong>
+                                </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="row" style="margin-top:30px">
+                <table style="width:100%">
+                    <tr>
+                        <td style="width:60%">
+                            <div style="padding-left:15px" >
+                                Attm :
+                                <t t-if="o.partner_id.child_ids">
+                                    <span t-esc="o.partner_id.child_ids[0].name" />
+                                </t>
+                                <t t-if="not o.partner_id.child_ids">
+                                    <span t-field="o.partner_id.name" />
+                                </t>
+                            </div>
+
+                            <div style="padding-left:15px">Tel :
+                                <span t-field="o.partner_id.phone"/>
+                            </div>
+                            <div style="padding-left:15px">Fax :
+                                <span t-field="o.partner_id.fax"/>
+                            </div>
+                        </td>
+                        <td style="width:40%">
+                            <div>Date :
+                                <span t-field="o.date_order"  t-field-options='{"format": "dd/MM/yyyy"}'/>
+                            </div>
+                            <br></br>
+                            <div  style="text-align:left; width:50%;float:left">Sale Code :
+                                <t t-if="o.user_id.partner_id.ref">
+                                    <span t-field="o.user_id.partner_id.ref" />
+                                </t>
+                                <t t-if="not o.user_id.partner_id.ref">
+                                    <span t-field="o.user_id.partner_id.name" />
+                                </t>
+                            </div>
+                            <div  style="text-align:left; width:50%;float:left">Term :
+                                 <span t-field="o.payment_term" />
+                            </div>
+
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <t t-set="j" t-value="-1"/>
+           <table style="width:100%;font-family: arial, sans-serif;border-collapse: collapse;width: 100%;border: 1px solid #000000;margin-top:10px;">
+                <thead>
+                    <tr style="width:100%;page-break-inside: avoid">
+                        <t t-set="j" t-value="j+1"/>
+                        <span t-esc="j"/>
+                       <td colspan="6" style="border: 1px solid #000000;">
+                           <strong>PJ NAME</strong>
+                       </td>
+                    </tr>
+                    <tr>
+                       <td style="text-align:center;border: 1px solid #000000;width:6%;vertical-align: middle;line-height:100%">
+                           <div>Item No.
+                           </div>
+                       </td>
+                       <td style="text-align:center;border: 1px solid #000000;width:55%;vertical-align: middle;line-height:100%" colspan="2">Description</td>
+                       <td style="text-align:center;border: 1px solid #000000;width:8%;vertical-align: middle;line-height:100%">Quantily</td>
+                       <td style="text-align:center;border: 1px solid #000000;width:14%;vertical-align: middle;line-height:100%;">Unit Price<br></br> $</td>
+                       <td style="text-align:center;border: 1px solid #000000;width:17%;vertical-align: middle;line-height:100%; ">Amount<br></br> $</td>
+                    </tr>
+               </thead>
+               <tbody>
+                   <t t-set="i" t-value="1"/>
+                   <tr t-foreach="o.order_line" t-as="l" style="page-break-inside: avoid">
+                       <t t-if="j==0">
+                       <td style="text-align:center;border-left: 1px solid #000000;">
+                           <span t-esc="i"/>
+                       </td>
+                       <td style="width:35%;text-align:left; padding-left:10px;border-left: 1px solid #000000;">
+                           <span t-field="l.name"/>
+                       </td>
+                       <td style="width:20%;text-align:left; padding-left:10px">
+                            <span  t-field="l.product_id.image_small" t-field-options='{"widget": "image"}' />
+                       </td>
+                       <td style="text-align:center;border-left: 1px solid #000000;">
+                            <span t-field="l.price_unit"/>
+                       </td>
+                       <td style="text-align:center;border-left: 1px solid #000000;">
+                            <span t-field="l.product_uom_qty"/>
+                       </td>
+                       <td style="text-align:center;border-left: 1px solid #000000;border-right: 1px solid #000000;">
+                            <span t-field="l.price_subtotal"/>
+                       </td>
+                       </t>
+                        <t t-if="j>0">
+                       <td style="text-align:center;border-left: 1px solid #000000;border-top:1px solid #000000;">
+                           <span t-esc="i"/>
+                       </td>
+                       <td style="width:35%;text-align:left; padding-left:10px;border-left: 1px solid #000000;border-top:1px solid #000000;">
+                           <span t-field="l.name"/>
+                       </td>
+                       <td style="width:20%;text-align:left; padding-left:10px;border-top:1px solid #000000;">
+                            <span  t-field="l.product_id.image_small" t-field-options='{"widget": "image"}' />
+                       </td>
+                       <td style="text-align:center;border-left: 1px solid #000000;border-top:1px solid #000000;">
+                            <span t-field="l.price_unit"/>
+                       </td>
+                       <td style="text-align:center;border-left: 1px solid #000000;border-top:1px solid #000000;">
+                            <span t-field="l.product_uom_qty"/>
+                       </td>
+                       <td style="text-align:center;border-left: 1px solid #000000;border-right: 1px solid #000000;border-top:1px solid #000000;">
+                            <span t-field="l.price_subtotal"/>
+                       </td>
+                       </t>
+                        <t t-set="i" t-value="i+1"/>
+                   </tr>
+                   <tr style="border: 1px solid #000000;">
+                       <td colspan="5" style="border-right: 1px solid #000000;">
+                            <div style="text-align:right;line-height:20px;padding-right:10px">Untaxed Amount:<br></br>
+                                Taxed:<br></br>
+                                Total:
+                            </div>
+                       </td>
+                       <td>
+                           <div style="text-align:center;line-height:20px;">
+                                <span t-field="o.amount_untaxed"/><br></br>
+                                <span t-field="o.amount_tax"/><br></br>
+                                <span t-field="o.amount_total"/>
+                           </div>
+                       </td>
+                   </tr>
+               </tbody>
+            </table>
+
+        </div>
+
+</template>
+
+<template id="report_sale_order_2">
+    <t t-call="report.html_container">
+        <t t-foreach="doc_ids" t-as="doc_id">
+            <t t-raw="translate_doc(doc_id, doc_model, 'partner_id.lang', 'tai_sale.report_saleorder_document')"/>
+        </t>
+    </t>
+</template>
+</data>
+</openerp>
