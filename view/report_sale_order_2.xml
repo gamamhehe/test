@@ -2,12 +2,12 @@
 <openerp>
 <data>
 <template id="report_saleorder_document">
-        <div class="page">
-            <div class="row">
-                <table style="width:100%">
+        <div class="header">
+             <div class="row">
+                <table style="width:97.8%">
                     <tr>
                         <td style="width:60%">
-                            <div style="padding-left:15px;width:10%;float:left">To :</div>
+                            <div style="padding-left:13px;width:9%;float:left">To :</div>
                             <div class="col-xs-6" t-field="o.partner_invoice_id"
                                  t-field-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": true}'/>
                         </td>
@@ -15,8 +15,8 @@
                                 <div>COMPANY REG NO :
                                     <span t-field="o.company_id.company_registry"/>
                                 </div>
-                                <div>OST REG NO :
-                                    <span t-field="o.company_id.vat"/>
+                                <div>OST REG NO <span style="margin-left:42px">:</span>
+                                    <span  t-field="o.company_id.vat"/>
                                 </div>
                                 <div>
                                     <strong style="color:#ff0000">QUOTATION / CONFIRMATION ORDER NO:<br></br>
@@ -29,6 +29,9 @@
                     </tr>
                 </table>
             </div>
+        </div>
+        <div class="page">
+
             <div class="row" style="margin-top:30px">
                 <table style="width:100%">
                     <tr>
@@ -43,11 +46,11 @@
                                 </t>
                             </div>
 
-                            <div style="padding-left:15px">Tel :
-                                <span t-field="o.partner_id.phone"/>
+                            <div style="padding-left:15px">Tel <span style="margin-left:9px">:</span>
+                                <span  t-field="o.partner_id.phone"/>
                             </div>
-                            <div style="padding-left:15px">Fax :
-                                <span t-field="o.partner_id.fax"/>
+                            <div style="padding-left:15px">Fax <span style="margin-left:5px">:</span>
+                                <span  t-field="o.partner_id.fax"/>
                             </div>
                         </td>
                         <td style="width:40%">
@@ -76,7 +79,6 @@
                 <thead>
                     <tr style="width:100%;page-break-inside: avoid">
                         <t t-set="j" t-value="j+1"/>
-                        <span t-esc="j"/>
                        <td colspan="6" style="border: 1px solid #000000;">
                            <strong>PJ NAME</strong>
                        </td>
@@ -159,7 +161,7 @@
 
 </template>
 
-<template id="report_sale_order_2">
+<template id="report_sale_order">
     <t t-call="report.html_container">
         <t t-foreach="doc_ids" t-as="doc_id">
             <t t-raw="translate_doc(doc_id, doc_model, 'partner_id.lang', 'tai_sale.report_saleorder_document')"/>

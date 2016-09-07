@@ -2,31 +2,32 @@
 <openerp>
 <data>
 <template id="report_purchaseorder_document">
+        <div class="header" style="margin-bottom:-30px;padding-bottom:-30px">
+                <div class="row">
+                    <table style="width:100%">
+                        <tr style="height:50x">
+                            <td style="width:60%">
+                                <div style="padding-left:15px;width:15%;float:left">Bill to </div>
+                                <div class="col-xs-6" t-field="o.partner_id"
+                                    t-field-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": true}'/>
+                            </td>
+                            <td style="vertical-align:middle;line-height:20px;align:center;height:100%;font-size:23px" >
+                                <strong>PURCHASE ORDER</strong>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div style="width:100%">
+                    <div style="width:60%;float:left"/>
+                    <div style="width:40%;float:right;font-size:19px">
+                        <strong style="padding-left:2px;margin-right:21px;">No :</strong>
+                        <strong><span t-field="o.name"/></strong>
+                    </div>
+                </div>
+        </div>
         <div class="page">
             <div class="row">
-                <table style="width:100%">
-                    <tr style="height:50x">
-                        <td style="width:60%">
-                            <div style="padding-left:15px;width:15%;float:left">Bill to </div>
-                            <div class="col-xs-6" t-field="o.partner_id"
-                                 t-field-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": true}'/>
-                        </td>
-                        <td style="vertical-align:middle;line-height:20px;align:center;height:100%;font-size:23px" >
-                               <strong>PURCHASE ORDER</strong>
-                        </td>
-                    </tr>
-                </table>
-            </div>
-            <div style="width:100%">
-                <div style="width:60%;float:left"/>
-                <div style="width:40%;float:right;font-size:19px">
-                    <strong style="padding-left:2px;margin-right:20px;">No:</strong>
-                    <strong><span t-field="o.name"/></strong>
-                </div>
-
-            </div>
-            <div class="row" style="margin-top:30px">
-                <table style="width:100%">
+                <table style="width:97.8%">
                     <tr>
                         <td style="width:60%">
                             <div style="padding-left:15px" >
@@ -48,17 +49,17 @@
                                 </t>
                             </div>
 
-                            <div style="padding-left:15px">Tel
-                                <span style="margin-left:28px" t-field="o.partner_id.phone"/>
+                            <div style="padding-left:15px">Tel <span style="margin-left:23px">:</span>
+                                <span  t-field="o.partner_id.phone"/>
                             </div>
-                            <div style="padding-left:15px">Fax
-                                <span style="margin-left:25px" t-field="o.partner_id.fax"/>
+                            <div style="padding-left:15px">Fax <span style="margin-left:20px">:</span>
+                                <span  t-field="o.partner_id.fax"/>
                             </div>
                         </td>
                         <td style="width:40%">
                             <table style="width:100%">
                                 <tr>
-                                    <td style="width:30%;text-align:left">
+                                    <td style="width:25%;text-align:left">
                                         Date
                                     </td>
                                     <td style="border-bottom: 1px solid #000000">
@@ -66,7 +67,7 @@
                                     </td>
                                 </tr>
                                  <tr>
-                                    <td style="width:30%;text-align:left">
+                                    <td style="width:25%;text-align:left">
                                         Terms
                                     </td>
                                     <td style="border-bottom: 1px solid #000000">
@@ -74,7 +75,7 @@
                                     </td>
                                 </tr>
                                  <tr>
-                                    <td style="width:30%;height:17px">
+                                    <td style="width:25%;height:17px">
 
                                     </td>
                                     <td style="border-bottom: 1px solid #000000">
@@ -143,7 +144,7 @@
 
 </template>
 
-<template id="report_purchase_order_1">
+<template id="report_purchase_order">
     <t t-call="report.html_container">
         <t t-foreach="doc_ids" t-as="doc_id">
             <t t-raw="translate_doc(doc_id, doc_model, 'partner_id.lang', 'tai_sale.report_purchaseorder_document')"/>

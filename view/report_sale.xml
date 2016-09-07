@@ -2,12 +2,12 @@
 <openerp>
     <data>
         <report
-            id="report_sale_order_1"
-            string="Report"
+            id="sale.report_saleorder"
+            string="Quotation / Order"
             model="sale.order"
             report_type="qweb-pdf"
-            file="tai_sale.report_sale_order_2"
-            name="tai_sale.report_sale_order_2"
+            file="sale.report_sale_order"
+            name="sale.report_sale_order"
         />
     </data>
 </openerp>

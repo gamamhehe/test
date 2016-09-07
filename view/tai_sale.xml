@@ -32,11 +32,9 @@
                    <field name="id_fee"/>
             </page>
             </xpath>
-
             <field name="amount_tax" position="after">
                 <field name="amount_fee"/>
             </field>
-
           </field>
       </record>
     </data>
