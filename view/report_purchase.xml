@@ -6,8 +6,8 @@
             string="Purchase Order"
             model="purchase.order"
             report_type="qweb-pdf"
-            file="purchase.report_purchase_order"
-            name="purchase.report_purchase_order"
+            file="tai_sale.report_purchase_order"
+            name="tai_sale.report_purchase_order"
         />
     </data>
 </openerp>

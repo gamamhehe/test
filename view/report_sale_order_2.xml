@@ -2,20 +2,39 @@
 <openerp>
 <data>
 <template id="report_saleorder_document">
-        <div class="header">
+        <div class="header" style="height:40%">
+             <div class="row" style="border-bottom-style:double;border-width:3px;margin-bottom:5px">
+                <table style="width:97.8%">
+                    <tr>
+                        <td style="width:62%; vertical-align:middle" align="center">
+                            <span t-field="o.company_id.logo" t-field-options='{"widget": "image"}'/>
+                        </td>
+                        <td style="vertical-align: top;line-height:20px" >
+                            <div><span t-field="o.company_id.name"/></div>
+                            <div><span t-field="o.company_id.street"/></div>
+                            <div><span t-field="o.company_id.street2"/></div>
+                            <div><span t-field="o.company_id.city"/></div>
+                            <div>Tel: <span t-field="o.company_id.phone"/></div>
+                            <div>Fax: <span t-field="o.company_id.fax"/></div>
+                            <div>Email: <span t-field="o.company_id.email"/></div>
+                            <div>Website: <span t-field="o.company_id.website"/></div>
+                        </td>
+                    </tr>
+                </table>
+             </div>
              <div class="row">
                 <table style="width:97.8%">
                     <tr>
-                        <td style="width:60%">
+                        <td style="width:62%">
                             <div style="padding-left:13px;width:9%;float:left">To :</div>
                             <div class="col-xs-6" t-field="o.partner_invoice_id"
                                  t-field-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": true}'/>
                         </td>
                         <td style="vertical-align: top;line-height:20px" >
-                                <div>COMPANY REG NO :
+                                <div style="font-size:10px;line-height:15px">COMPANY REG NO :
                                     <span t-field="o.company_id.company_registry"/>
                                 </div>
-                                <div>OST REG NO <span style="margin-left:42px">:</span>
+                                <div style="font-size:10px;line-height:11px">OST REG NO <span style="margin-left:29px">:</span>
                                     <span  t-field="o.company_id.vat"/>
                                 </div>
                                 <div>
@@ -30,8 +49,13 @@
                 </table>
             </div>
         </div>
-        <div class="page">
-
+        <div class="page" style="height:40%">
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
             <div class="row" style="margin-top:30px">
                 <table style="width:100%">
                     <tr>
@@ -139,25 +163,70 @@
                        </t>
                         <t t-set="i" t-value="i+1"/>
                    </tr>
-                   <tr style="border: 1px solid #000000;">
-                       <td colspan="5" style="border-right: 1px solid #000000;">
-                            <div style="text-align:right;line-height:20px;padding-right:10px">Untaxed Amount:<br></br>
-                                Taxed:<br></br>
-                                Total:
-                            </div>
+                   <tr style="page-break-inside: avoid">
+                       <td style="border-left: 1px solid #000000;border-right: 1px solid #000000;"/>
+                       <td colspan="2">
+                           <p style="text-decoration:underline;margin-left:3px">Terms and Conditions</p>
+                           <span t-field="o.payment_term.note" />
                        </td>
-                       <td>
-                           <div style="text-align:center;line-height:20px;">
-                                <span t-field="o.amount_untaxed"/><br></br>
-                                <span t-field="o.amount_tax"/><br></br>
-                                <span t-field="o.amount_total"/>
-                           </div>
+                       <td style="border-left: 1px solid #000000;border-right: 1px solid #000000"/>
+                       <td style="border-left: 1px solid #000000;border-right: 1px solid #000000;"/>
+                       <td style="border-left: 1px solid #000000;border-right: 1px solid #000000"/>
+                   </tr>
+                   <tr style="page-break-inside: avoid">
+                       <td style="border-left: 1px solid #000000;border-right: 1px solid #000000;"/>
+                       <td colspan="2"/>
+                       <td style="border-left: 1px solid #000000;border-right: 1px solid #000000"/>
+                       <td style="border-left: 1px solid #000000;border-right: 1px solid #000000;border-top:1px solid #000000;">
+                               <span> Sub Total</span>
+                       </td>
+                        <td style="border-left: 1px solid #000000;border-right: 1px solid #000000;border-top:1px solid #000000;text-align:right">
+                               <span style="text-align:right" t-field="o.amount_untaxed"/>
+                       </td>
+                   </tr>
+                    <tr style="page-break-inside: avoid">
+                       <td style="border-left: 1px solid #000000;border-right: 1px solid #000000;"/>
+                       <td colspan="2"/>
+                       <td style="border-left: 1px solid #000000;border-right: 1px solid #000000"/>
+                       <td style="border-left: 1px solid #000000;border-right: 1px solid #000000;border-top:1px solid #000000;">
+                               <span> 7% GST</span>
+                       </td>
+                        <td style="border-left: 1px solid #000000;border-right: 1px solid #000000;border-top:1px solid #000000;text-align:right">
+                               <span style="text-align:right" t-field="o.amount_tax"/>
+                       </td>
+                   </tr>
+                   <tr style="page-break-inside: avoid">
+                       <td style="border-left: 1px solid #000000;border-right: 1px solid #000000;"/>
+                       <td colspan="2"/>
+                       <td style="border-left: 1px solid #000000;border-right: 1px solid #000000"/>
+                       <td style="border-left: 1px solid #000000;border-right: 1px solid #000000;border-top:1px solid #000000;">
+                               <span> Grand Total</span>
+                       </td>
+                        <td style="border-left: 1px solid #000000;border-right: 1px solid #000000;border-top:1px solid #000000;text-align:right">
+                               <span t-field="o.amount_total"/>
                        </td>
                    </tr>
                </tbody>
             </table>
-
+            <div>
+                <span style="font-style:italic;color:#008000;margin-right:200px;font-size:10px">E.&amp;O.E.</span>
+                <span style="color:#008000;font-size:10px">THE ABOVE PRICE QUOTED IS SUBJECT TO  7% GST.</span>
+            </div>
         </div>
+        <div class="footer" style="height:20%">
+                <div style="width:35%;float:left;" align="center">
+                    <p style="border-bottom: 1px solid #000000;padding-bottom:50px">
+                        <strong style="color:#FF0000">CUSTOMER</strong>
+                    </p>
+                    <span>Signature &amp; Company's Stamp</span>
+                </div>
+                <div style="width:25%;float:right;" align="center">
+                    <p style="border-bottom: 1px solid #000000;padding-bottom:50px">
+                        <strong style="color:#FF0000">HARVEST LINK INT'L</strong>
+                    </p>
+                    <span>Sales Deptment</span>
+                </div>
+            </div>
 
 </template>
 

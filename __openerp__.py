@@ -8,7 +8,8 @@
                 "view/report_sale_order_2.xml",
                 "view/report_sale.xml",
                 "view/report_purchase_order_2.xml",
-                "view/report_purchase.xml"
+                "view/report_purchase.xml",
+                "view/paper_format.xml"
                 ],
 "installable": True,
 "active": True
