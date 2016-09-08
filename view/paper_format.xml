@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+
+        <record id="sale.paperformat_sale_order" model="report.paperformat">
+            <field name="name">Sale Report A4</field>
+            <field name="default" eval="True" />
+            <field name="format">A4</field>
+            <field name="page_height">0</field>
+            <field name="page_width">0</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">77</field>
+            <field name="margin_bottom">35</field>
+            <field name="margin_left">7</field>
+            <field name="margin_right">7</field>
+            <field name="header_line" eval="False" />
+            <field name="header_spacing">72</field>
+            <field name="dpi">90</field>
+        </record>
+         <record id="purchase.paperformat_purchase_order" model="report.paperformat">
+            <field name="name">purchase Report A4</field>
+            <field name="default" eval="True" />
+            <field name="format">A4</field>
+            <field name="page_height">0</field>
+            <field name="page_width">0</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">77</field>
+            <field name="margin_bottom">35</field>
+            <field name="margin_left">7</field>
+            <field name="margin_right">7</field>
+            <field name="header_line" eval="False" />
+            <field name="header_spacing">72</field>
+            <field name="dpi">90</field>
+        </record>
+
+    </data>
+</openerp>
