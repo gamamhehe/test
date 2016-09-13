@@ -3,7 +3,7 @@
 <data>
 <template id="purchase.report_purchaseorder_document">
         <div class="header" style="margin-bottom:-30px;padding-bottom:-30px">
-             <div class="row" style="border-bottom-style:double;border-width:3px;margin-bottom:5px">
+             <div class="row" style="border-bottom-style:double;border-width:3px;margin-bottom:5px;margin-left:-4px;margin-right:0px">
                 <table style="width:97.8%">
                     <tr>
                         <td style="width:63%; vertical-align:middle" align="center">
@@ -25,8 +25,8 @@
              <div class="row">
                     <table style="width:100%">
                         <tr style="height:50x">
-                            <td style="width:60%">
-                                <div style="padding-left:15px;width:15%;float:left">Bill to </div>
+                            <td style="width:61%;height:95px">
+                                <div style="padding-left:15px;width:12.4%;float:left">Bill to </div>
                                 <div class="col-xs-6" t-field="o.partner_id"
                                     t-field-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": true}'/>
                             </td>
@@ -37,8 +37,8 @@
                     </table>
              </div>
                 <div style="width:100%">
-                    <div style="width:60%;float:left"/>
-                    <div style="width:40%;float:right;font-size:19px">
+                    <div style="width:61%;float:left"/>
+                    <div style="width:39%;float:right;font-size:19px">
                         <strong style="padding-left:2px;margin-right:21px;">No :</strong>
                         <strong><span t-field="o.name"/></strong>
                     </div>
@@ -48,7 +48,7 @@
             <div class="row">
                 <table style="width:97.8%">
                     <tr>
-                        <td style="width:60%">
+                        <td style="width:62%">
                             <div style="padding-left:15px" >
                                 Attn to :
                                 <t t-if="o.partner_id.child_ids">
@@ -75,7 +75,7 @@
                                 <span  t-field="o.partner_id.fax"/>
                             </div>
                         </td>
-                        <td style="width:40%">
+                        <td style="width:38%">
                             <table style="width:100%">
                                 <tr>
                                     <td style="width:25%;text-align:left">
@@ -115,8 +115,8 @@
                        </td>
                        <td style="text-align:center;border: 1px solid #000000;width:55%;vertical-align: middle;line-height:100%" colspan="2">Description</td>
                        <td style="text-align:center;border: 1px solid #000000;width:8%;vertical-align: middle;line-height:100%">Quantily</td>
-                       <td style="text-align:center;border: 1px solid #000000;width:14%;vertical-align: middle;line-height:100%;">Unit Price<br></br> $</td>
-                       <td style="text-align:center;border: 1px solid #000000;width:17%;vertical-align: middle;line-height:100%; ">Amount<br></br> $</td>
+                       <td style="text-align:center;border: 1px solid #000000;width:14%;vertical-align: middle;line-height:100%;">Unit Price<br></br><span t-field="o.currency_id.symbol"/></td>
+                       <td style="text-align:center;border: 1px solid #000000;width:17%;vertical-align: middle;line-height:100%; ">Amount<br></br><span t-field="o.currency_id.symbol"/></td>
                     </tr>
                </thead>
                <tbody>

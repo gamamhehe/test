@@ -4,5 +4,5 @@ class fees(osv.osv):
     _columns = {
         'fee' : fields.char('fee'),
         'amount' : fields.integer('amount'),
-        'id_tai' : fields.many2one('tai.sale',string = 'Fee')
+        'id_tai' : fields.many2one('sale.order',string = 'Fee')
     }
