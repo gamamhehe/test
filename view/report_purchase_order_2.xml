@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
 <data>
+<<<<<<< HEAD
 <template id="purchase.report_purchaseorder_document">
         <div class="header" style="margin-bottom:-30px;padding-bottom:-30px">
              <div class="row" style="border-bottom-style:double;border-width:3px;margin-bottom:5px;margin-left:-4px;margin-right:0px">
@@ -27,6 +28,15 @@
                         <tr style="height:50x">
                             <td style="width:61%;height:95px">
                                 <div style="padding-left:15px;width:12.4%;float:left">Bill to </div>
+=======
+<template id="report_purchaseorder_document">
+        <div class="header" style="margin-bottom:-30px;padding-bottom:-30px">
+                <div class="row">
+                    <table style="width:100%">
+                        <tr style="height:50x">
+                            <td style="width:60%">
+                                <div style="padding-left:15px;width:15%;float:left">Bill to </div>
+>>>>>>> 90521546acbbe5f0718c961c4f22201c22141967
                                 <div class="col-xs-6" t-field="o.partner_id"
                                     t-field-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": true}'/>
                             </td>
@@ -35,10 +45,17 @@
                             </td>
                         </tr>
                     </table>
+<<<<<<< HEAD
              </div>
                 <div style="width:100%">
                     <div style="width:61%;float:left"/>
                     <div style="width:39%;float:right;font-size:19px">
+=======
+                </div>
+                <div style="width:100%">
+                    <div style="width:60%;float:left"/>
+                    <div style="width:40%;float:right;font-size:19px">
+>>>>>>> 90521546acbbe5f0718c961c4f22201c22141967
                         <strong style="padding-left:2px;margin-right:21px;">No :</strong>
                         <strong><span t-field="o.name"/></strong>
                     </div>
@@ -48,7 +65,11 @@
             <div class="row">
                 <table style="width:97.8%">
                     <tr>
+<<<<<<< HEAD
                         <td style="width:62%">
+=======
+                        <td style="width:60%">
+>>>>>>> 90521546acbbe5f0718c961c4f22201c22141967
                             <div style="padding-left:15px" >
                                 Attn to :
                                 <t t-if="o.partner_id.child_ids">
@@ -75,7 +96,11 @@
                                 <span  t-field="o.partner_id.fax"/>
                             </div>
                         </td>
+<<<<<<< HEAD
                         <td style="width:38%">
+=======
+                        <td style="width:40%">
+>>>>>>> 90521546acbbe5f0718c961c4f22201c22141967
                             <table style="width:100%">
                                 <tr>
                                     <td style="width:25%;text-align:left">
@@ -115,8 +140,13 @@
                        </td>
                        <td style="text-align:center;border: 1px solid #000000;width:55%;vertical-align: middle;line-height:100%" colspan="2">Description</td>
                        <td style="text-align:center;border: 1px solid #000000;width:8%;vertical-align: middle;line-height:100%">Quantily</td>
+<<<<<<< HEAD
                        <td style="text-align:center;border: 1px solid #000000;width:14%;vertical-align: middle;line-height:100%;">Unit Price<br></br><span t-field="o.currency_id.symbol"/></td>
                        <td style="text-align:center;border: 1px solid #000000;width:17%;vertical-align: middle;line-height:100%; ">Amount<br></br><span t-field="o.currency_id.symbol"/></td>
+=======
+                       <td style="text-align:center;border: 1px solid #000000;width:14%;vertical-align: middle;line-height:100%;">Unit Price<br></br> $</td>
+                       <td style="text-align:center;border: 1px solid #000000;width:17%;vertical-align: middle;line-height:100%; ">Amount<br></br> $</td>
+>>>>>>> 90521546acbbe5f0718c961c4f22201c22141967
                     </tr>
                </thead>
                <tbody>
@@ -160,6 +190,18 @@
                </tbody>
             </table>
         </div>
+<<<<<<< HEAD
+=======
+
+</template>
+
+<template id="report_purchase_order">
+    <t t-call="report.html_container">
+        <t t-foreach="doc_ids" t-as="doc_id">
+            <t t-raw="translate_doc(doc_id, doc_model, 'partner_id.lang', 'tai_sale.report_purchaseorder_document')"/>
+        </t>
+    </t>
+>>>>>>> 90521546acbbe5f0718c961c4f22201c22141967
 </template>
 </data>
 </openerp>

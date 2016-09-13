@@ -2,6 +2,7 @@
 <openerp>
     <data>
         <report
+<<<<<<< HEAD
             id="sale.report_sale_order"
             string="Quotation / Order"
             model="sale.order"
@@ -15,3 +16,32 @@
     </data>
 </openerp>
 
+=======
+            id="sale.report_saleorder"
+            string="Quotation / Order"
+            model="sale.order"
+            report_type="qweb-pdf"
+            file="tai_sale.report_sale_order"
+            name="tai_sale.report_sale_order"
+        />
+        <record id="paperformat_frenchcheck" model="report.paperformat">
+            <field name="name">Sale_order_paper</field>
+            <field name="default" eval="True"/>
+            <field name="format">custom</field>
+            <field name="page_height">80</field>
+            <field name="page_width">175</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">60</field>
+            <field name="margin_bottom">3</field>
+            <field name="margin_left">7</field>
+            <field name="margin_right">7</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">55</field>
+            <field name="dpi">80</field>
+        </record>
+        <record id="tai_sale.report_sale_order" model="ir.actions.report.xml">
+            <field name="paperformat_frenchcheck" ref="tai_sale.report_sale_order" />
+        </record>
+    </data>
+</openerp>
+>>>>>>> 90521546acbbe5f0718c961c4f22201c22141967
